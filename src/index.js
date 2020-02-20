@@ -15,6 +15,3 @@ nav.registerTabs([
     {name: "posts", component: posts},
     {name: "favorite", component: favorite}
 ])
-
- 
-//console.log(nav);
