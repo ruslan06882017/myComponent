@@ -10,8 +10,8 @@ export class CreateComponent extends Component {
         this.$el.addEventListener('submit', submitHandler.bind(this));
 
         this.form = new Form(this.$el, {
-          title: [validators.required],
-          fulltext: [validators.required]      
+          title: [Validators.required],
+          fulltext: [Validators.required, Validators.minLength(10)] 
         });
     }
 }
@@ -24,11 +24,12 @@ function submitHandler(event){
             type: this.$el.type.value,
             ...this.form.value()
         }
+        console.log('formData', formData);
     } else {
         console.warn('Form is invalid');
     }
 
 
 
-    console.log('formData', formData);
+    
 }
