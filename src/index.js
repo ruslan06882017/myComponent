@@ -10,10 +10,21 @@ const loader = new LoaderComponent('loader');
 const nav = new NavigationComponent('navigation');
 const posts = new PostsComponent('posts', {loader});
 const create = new CreateComponent('create');
-const favorite = new FavoriteComponent('favorite'); 
+const favorite = new FavoriteComponent('favorite', {loader});
 
 nav.registerTabs([
     {name: "create", component: create},
     {name: "posts", component: posts},
     {name: "favorite", component: favorite}
 ])
+
+/*
+const a = '{ "name": "Ruslan", "age": "32" }';
+const c = {
+    name: "Alina",
+    age: 22,
+    address: "Tole bi 21"
+}
+const b = JSON.parse(a);
+console.log(JSON.stringify(c));
+*/
