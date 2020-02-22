@@ -3,16 +3,19 @@ import { apiService } from "../services/api.service";
 import { TransformService } from "../services/transform.service";
 
 export class PostsComponent extends Component{
-    constructor(id){
-        super(id)
+    constructor(id, {loader}){
+        super(id);
+        this.loader = loader;
     }
 
     async onShow(){
+        this.loader.show();
         const fbData = await apiService.fetchPosts();
         const posts = TransformService.fbObjectToArray(fbData);
         
         const html = posts.map(post => renderPost(post));
-        this.$el.insertAdjacentHTML('afterbegin', html.join(' '));
+        this.loader.hide();
+        this.$el.insertAdjacentHTML('afterbegin', html.join(' '));        
     }
 
     onHide(){
