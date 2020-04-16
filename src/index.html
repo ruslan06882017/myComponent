@@ -14,63 +14,40 @@
       <div class="col s12">
         <div id="main" class="card">
           <div class="card-content">
-            <span class="card-title">Task List</span>
+            <span class="card-title">Planner </span>
             <div class="row">
               <form id="task-form">
-                <div class="input-field col s12">
-                  <input type="text" name="task" id="task">
-                  <label for="task">New Task</label>
+                <div class="input-field col s3">
+                  <input type="text" name="actionPlan" id="actionPlan">
+                  <label for="actionPlan">Action plan</label>
                 </div>
-                <input type="submit" value="Add Task" class="btn">
+                <select class="browser-default input-field col s3" id="assignedTo">
+                  <option value="" disabled selected> Assigned to </option>
+                  <option>Ruslan Gusseinov</option>
+                  <option selected>Maxim Sissenov</option>
+                  <option>Andrey Petrov</option>
+                  <option>Oleg Smirnov</option>
+                  <label>Browser Select</label>
+                </select> 
+                <div class="input-field col s3">
+                  <input type="text" class="datepicker" name="deadline" id="deadline">
+                  <label for="deadline">Deadline</label>
+                </div>
+                <input type="submit" id="add-task" value="Add Task" class="btn">
               </form>
+
+              <table class="table striped" id="action-plan-table">
+                  <tr>
+                    <th>ID</th>
+                    <th>Action Plan</th>
+                    <th>Assigned to</th>
+                    <th>Deadline</th>
+                    <th>Action</th>
+                  </tr>
+              </table>
             </div>
           </div>
-          <div class="card-action" id="cardAction">
-            <h5 id="task-title">Tasks</h5>
-            <div class="input-field col s12">
-              <input type="text" name="filter" id="filter">
-              <label for="filter">Filter Tasks</label>
-            </div>
-            <ul class="collection">
-              <li class="collection-item">
-                List item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-
-              <li class="collection-item">
-                List item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-
-              <li class="collection-item">
-                List item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-              
-              <li class="collection-item">
-                List item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-              
-              <li class="collection-item">
-                List item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-
-              
-            </ul>
-            <a href="#" class="clear-tasks btn black">Clear Tasks</a>
-          </div>
+  
         </div>
       </div>
     </div>
