@@ -1,18 +1,12 @@
 let btn = document.getElementById("add-task");
 let table = document.getElementById("action-plan-table");
 
-let actionPlan = document.getElementById("actionPlan").value;
-let assignedTo = document.getElementById("assignedTo");
-let selectedOption = assignedTo.options[assignedTo.selectedIndex].value;
-let deadline = document.getElementById("deadline").value;
-
-/* console.log('---VALUES---');
-console.log(actionPlan, selectedOption, deadline); */
-
 btn.addEventListener("click", function(e) { 
     e.preventDefault();
-
-    console.log(actionPlan.value);
+    let actionPlan = document.getElementById("actionPlan").value;
+    let assignedTo = document.getElementById("assignedTo");
+    let selectedOption = assignedTo.options[assignedTo.selectedIndex].value;
+    let deadline = document.getElementById("deadline").value;
 
     let tr = document.createElement("tr");
 
@@ -38,11 +32,15 @@ btn.addEventListener("click", function(e) {
 
     tdAction.appendChild(removeAction);
     tr.appendChild(tdAction);
-
     table.appendChild(tr);
 
 });
 
 document.addEventListener("click", function(e){
     //console.log(`Clicked on ${e.target.tagName}`);
+    const currentEl = e.target;
+    if (currentEl.tagName == 'I'){
+        currentEl.closest("tr").remove();
+        //console.log(currentEl.closest("tr"));
+    }
 })
