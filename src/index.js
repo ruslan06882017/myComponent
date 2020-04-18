@@ -1,46 +1,67 @@
-let btn = document.getElementById("add-task");
-let table = document.getElementById("action-plan-table");
+// Define UI vars
 
-btn.addEventListener("click", function(e) { 
+const form = document.querySelector("#task-form");
+const taskList = document.querySelector(".collection");
+const clearBtn = document.querySelector(".clear-tasks");
+const filter = document.querySelector("#filter");
+const taskInput = document.querySelector("#task");
+
+loadEventListeners();
+
+function loadEventListeners(){
+    form.addEventListener('submit', addTask);
+    taskList.addEventListener('click', removeTask);
+    clearBtn.addEventListener('click', clearTasks);
+    filter.addEventListener('keyup', filterTask);
+}
+
+// Add task
+function addTask(e) {
     e.preventDefault();
-    let actionPlan = document.getElementById("actionPlan").value;
-    let assignedTo = document.getElementById("assignedTo");
-    let selectedOption = assignedTo.options[assignedTo.selectedIndex].value;
-    let deadline = document.getElementById("deadline").value;
 
-    let tr = document.createElement("tr");
-
-    let tdId = document.createElement("td");
-    tdId.appendChild(document.createTextNode("1"));
-    tr.appendChild(tdId);
-
-    let tdActionPlan = document.createElement("td");
-    tdActionPlan.appendChild(document.createTextNode(actionPlan));
-    tr.appendChild(tdActionPlan);
-
-    let tdAssignedTo = document.createElement("td");
-    tdAssignedTo.appendChild(document.createTextNode(selectedOption));
-    tr.appendChild(tdAssignedTo);
-
-    let tdDeadline = document.createElement("td");
-    tdDeadline.appendChild(document.createTextNode(deadline));
-    tr.appendChild(tdDeadline);
-
-    let tdAction = document.createElement("td");
-    let removeAction = document.createElement("a");
-    removeAction.innerHTML = '<i class="fa fa-remove" style="font-size:24px"></i>';
-
-    tdAction.appendChild(removeAction);
-    tr.appendChild(tdAction);
-    table.appendChild(tr);
-
-});
-
-document.addEventListener("click", function(e){
-    //console.log(`Clicked on ${e.target.tagName}`);
-    const currentEl = e.target;
-    if (currentEl.tagName == 'I'){
-        currentEl.closest("tr").remove();
-        //console.log(currentEl.closest("tr"));
+    if (taskInput.value === ''){
+        alert('Add a task');
+        return;
     }
-})
+
+    // Create li element
+    const li = document.createElement('li');
+    li.className = 'collection-item';
+    li.appendChild(document.createTextNode(taskInput.value));
+
+    const link = document.createElement('a');
+    link.className = 'delete-item secondary-content';
+    link.innerHTML = '<i class="fa fa-remove"></i>';
+    li.appendChild(link);
+    taskInput.value = '';
+    taskList.appendChild(li);
+
+    //console.log(li);
+}
+
+function removeTask(e){
+    if (e.target.parentElement.classList.contains('delete-item')){
+        e.target.parentElement.parentElement.remove();
+    }
+}
+
+function clearTasks(){
+    while (taskList.firstChild){
+        taskList.removeChild(taskList.firstChild);
+    }
+}
+
+function filterTask(e){
+    const text = e.target.value.toLowerCase();
+   // console.log(taskList.childNodes);
+    taskList.childNodes.forEach(task => {
+        const item = task.firstChild.textContent;
+        if (item.toLowerCase().indexOf(text) != -1){
+            task.style.display = 'block';
+        } else {
+            task.style.display = 'none';
+        }
+
+    });
+
+}
