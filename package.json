@@ -1,7 +1,7 @@
 {
   "name": "mycomponent",
   "version": "1.0.0",
-  "description": "js native blog",
+  "description": "Github finder",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
