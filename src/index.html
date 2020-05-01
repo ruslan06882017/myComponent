@@ -4,75 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css">
-  <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
-  <link rel="stylesheet" href="styles.css">
-
-  <title>JS Prepare</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css" />
+ 
+  <title> Github finder  </title>
 </head>
 <body>
-<header id="header">
-  <h1 class="title">БЛОГ 001001</h1>
-  <h2 class="subtitle">Создавайте статьи и добавляйте их в избранное</h2>
-  <button class="get-started button button-primary button-large js-header-start ">Приступить</button>
-</header>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Gutgub finder <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
 
-<section class="container w-container">
-  <ul class="tabs" id="navigation">
-    <li><a class="tab " href="#" data-name="posts">Посты</a></li>
-    <li><a class="tab active" href="#" data-name="create">Создать</a></li>
-    <li><a class="tab" href="#" data-name="favorite">Избранное</a></li>
-  </ul>
+      </ul>
+    </div>
+  </nav>
 
-  <div class="loader-wrap hide" id="loader">
-    <div class="lds-ripple"><div></div><div></div></div>
+
+  <div class="container searchContainer">
+    <div class="search card card-body">
+      <h1>Search Github users</h1> 
+      <p class="lead">Type user name here</p>
+      <input type="text" id="searchUser" class="form-control"
+             placeholder="Github Username...">
+    </div>
+
+    <br>
+    <div id="profile"></div>
   </div>
 
-  <form id="create">
-    <h1 class="h4">Создать новый пост</h1>
-
-    <div class="form-control">
-      <label>Название</label>
-      <input type="text" name="title" placeholder="Введите название">
-    </div>
-
-    <div class="form-control">
-      <label>Текст</label>
-      <textarea name="fulltext" placeholder="Введите текст поста"></textarea>
-    </div>
-
-    <div class="form-control">
-      <label>Тип</label>
-      <select name="type">
-        <option value="note" selected>Заметка</option>
-        <option value="news">Новость</option>
-      </select>
-    </div>
-
-    <button class="button-primary button-round button-shadow" type="submit">Создать</button>
-  </form>
-
-  <div id="posts" class="hide">
-    <div class="panel">
-      <div class="panel-head">
-        <p class="panel-title">Название поста 1</p>
-        <ul class="tags">
-          <li class="tag tag-blue tag-rounded">Новость</li>
-        </ul>
-      </div>
-      <div class="panel-body">
-        <p class="multi-line">Lorem ipsum dolor sit amet.</p>
-      </div>
-      <div class="panel-footer w-panel-footer">
-        <small>12.12.12</small>
-      </div>
-    </div>
-</div>
-  <div id="favorite" class="hide"></div>
-
-</section>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  
+  <script src="github.js"></script>
+  <script src="ui.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

@@ -1,30 +1,29 @@
-import {HeaderComponent} from './components/header.component'
-import {NavigationComponent} from './components/navigation.component'
-import {CreateComponent}  from './components/create.component'
-import {PostsComponent} from './components/posts.component'
-import {FavoriteComponent} from './components/favorite.component'
-import {LoaderComponent} from './components/loader.component';
+// Init class
+ import Github from './github';
+ import UI from './ui';
 
-new HeaderComponent('header');
-const loader = new LoaderComponent('loader');
-const nav = new NavigationComponent('navigation');
-const posts = new PostsComponent('posts', {loader});
-const create = new CreateComponent('create');
-const favorite = new FavoriteComponent('favorite', {loader});
+// Search input
+const searchUser = document.getElementById('searchUser');
 
-nav.registerTabs([
-    {name: "create", component: create},
-    {name: "posts", component: posts},
-    {name: "favorite", component: favorite}
-])
+// Search input event listener
+searchUser.addEventListener('keyup', e => {
+  const userText = e.target.value;
+  const github = new Github;
+  const ui = new UI;
 
-/*
-const a = '{ "name": "Ruslan", "age": "32" }';
-const c = {
-    name: "Alina",
-    age: 22,
-    address: "Tole bi 21"
-}
-const b = JSON.parse(a);
-console.log(JSON.stringify(c));
-*/
+  if (userText !== ''){
+    //console.log(userText);
+    // Make HTTP call
+    github.getUser(userText).then(response => {
+      if (response.profile.message == "Not Found"){
+        // 
+        ui.showAlert('User not found', 'alert alert-danger');
+      } else {
+        //console.log(response.profile);
+        ui.showProfile(response.profile);
+      }
+    })
+  } else {
+    ui.clearProfile();
+  }
+})
