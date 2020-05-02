@@ -1,30 +1,36 @@
-import {HeaderComponent} from './components/header.component'
-import {NavigationComponent} from './components/navigation.component'
-import {CreateComponent}  from './components/create.component'
-import {PostsComponent} from './components/posts.component'
-import {FavoriteComponent} from './components/favorite.component'
-import {LoaderComponent} from './components/loader.component';
+const form = document.getElementById('form');
 
-new HeaderComponent('header');
-const loader = new LoaderComponent('loader');
-const nav = new NavigationComponent('navigation');
-const posts = new PostsComponent('posts', {loader});
-const create = new CreateComponent('create');
-const favorite = new FavoriteComponent('favorite', {loader});
+form.onsubmit = e => {
+    e.preventDefault();
+    
+/*     const data = new FormData(form);
+    data.append("name", form.name);
+    data.append("email", form.email);    
+    console.log(data.values); */
 
-nav.registerTabs([
-    {name: "create", component: create},
-    {name: "posts", component: posts},
-    {name: "favorite", component: favorite}
-])
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onload = function(){
+        if (this.status == 200){
+            const result = JSON.parse(this.response);
+            console.log(result);
+        }
+        
+    }
+    xhr.send();
+     
 
-/*
-const a = '{ "name": "Ruslan", "age": "32" }';
-const c = {
-    name: "Alina",
-    age: 22,
-    address: "Tole bi 21"
 }
-const b = JSON.parse(a);
-console.log(JSON.stringify(c));
-*/
+
+// form.addEventListener("submit", handleFormSend);
+
+// // Form send data
+// function handleFormSend(e){
+//     e.preventDefault();
+    
+//     const data = new FormData(form);
+    
+    
+//     console.log(data);
+// }

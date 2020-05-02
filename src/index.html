@@ -4,75 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/solid.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/fontawesome.css">
-  <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
-  <link rel="stylesheet" href="styles.css">
-
-  <title>JS Prepare</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ 
+  <title> Form Validation  </title>
 </head>
 <body>
-<header id="header">
-  <h1 class="title">БЛОГ 001001</h1>
-  <h2 class="subtitle">Создавайте статьи и добавляйте их в избранное</h2>
-  <button class="get-started button button-primary button-large js-header-start ">Приступить</button>
-</header>
 
-<section class="container w-container">
-  <ul class="tabs" id="navigation">
-    <li><a class="tab " href="#" data-name="posts">Посты</a></li>
-    <li><a class="tab active" href="#" data-name="create">Создать</a></li>
-    <li><a class="tab" href="#" data-name="favorite">Избранное</a></li>
-  </ul>
-
-  <div class="loader-wrap hide" id="loader">
-    <div class="lds-ripple"><div></div><div></div></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <h1>User Form</h1>
+        <form id="form">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" value="Ruslan" class="form-control" id="name" placeholder="Name">
+            <div class="invalid-feedback">
+              Name must be between 2 and 10 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Zipcode</label>
+            <input type="text" name="zip" value="zip" class="form-control" id="zip" placeholder="Zipcode">
+            <div class="invalid-feedback">
+              Enter a valid zipcode
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+            <div class="invalid-feedback">
+              Enter a valid email 
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" name="phone" class="form-control" id="phone" placeholder="Phone Number">
+            <div class="invalid-feedback">
+             Enter a valid phone
+            </div>
+          </div>
+          <input type="submit" value="Submit" id="sendForm" class="btn btn-primary btn-block">
+        </form>
+      </div>
+    </div>
   </div>
 
-  <form id="create">
-    <h1 class="h4">Создать новый пост</h1>
 
-    <div class="form-control">
-      <label>Название</label>
-      <input type="text" name="title" placeholder="Введите название">
-    </div>
+   
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <div class="form-control">
-      <label>Текст</label>
-      <textarea name="fulltext" placeholder="Введите текст поста"></textarea>
-    </div>
-
-    <div class="form-control">
-      <label>Тип</label>
-      <select name="type">
-        <option value="note" selected>Заметка</option>
-        <option value="news">Новость</option>
-      </select>
-    </div>
-
-    <button class="button-primary button-round button-shadow" type="submit">Создать</button>
-  </form>
-
-  <div id="posts" class="hide">
-    <div class="panel">
-      <div class="panel-head">
-        <p class="panel-title">Название поста 1</p>
-        <ul class="tags">
-          <li class="tag tag-blue tag-rounded">Новость</li>
-        </ul>
-      </div>
-      <div class="panel-body">
-        <p class="multi-line">Lorem ipsum dolor sit amet.</p>
-      </div>
-      <div class="panel-footer w-panel-footer">
-        <small>12.12.12</small>
-      </div>
-    </div>
-</div>
-  <div id="favorite" class="hide"></div>
-
-</section>
+  <script src="index.js"></script>
 </body>
 </html>

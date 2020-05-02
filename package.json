@@ -1,7 +1,7 @@
 {
   "name": "mycomponent",
   "version": "1.0.0",
-  "description": "js native blog",
+  "description": "Github finder",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -24,6 +24,7 @@
     "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.8.3"
+    "@babel/polyfill": "^7.8.3",
+    "node-http-server": "^8.1.2"
   }
 }
