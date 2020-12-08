@@ -3,7 +3,7 @@ export class Form {
     this.form = form
     this.controls = controls
   }
-
+  // hello
   value(){
     const value = {}
     Object.keys(this.controls).forEach(control => {
