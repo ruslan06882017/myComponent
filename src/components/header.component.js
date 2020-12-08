@@ -20,3 +20,8 @@ function btnHandler(){
     localStorage.setItem("visited", JSON.stringify(true));
     this.hide();
 }
+
+function btnHandldsfer(){
+    localStorage.setItem("visited", JSON.stringify(true));
+    this.hide();
+}

@@ -24,6 +24,7 @@ export class PostsComponent extends Component{
 
     onHide(){
         this.$el.innerHTML = '';
+        console.log(`dfsdfsdf`)
     }
 
 }
