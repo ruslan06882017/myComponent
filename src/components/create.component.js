@@ -19,7 +19,7 @@ export class CreateComponent extends Component {
 
 async function submitHandler(event){
     event.preventDefault();
-
+    console.log(`here`)
     if (this.form.isValid()){
         const formData = {
             type: this.$el.type.value,
