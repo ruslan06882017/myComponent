@@ -1,30 +1,53 @@
-import {HeaderComponent} from './components/header.component'
-import {NavigationComponent} from './components/navigation.component'
-import {CreateComponent}  from './components/create.component'
-import {PostsComponent} from './components/posts.component'
-import {FavoriteComponent} from './components/favorite.component'
-import {LoaderComponent} from './components/loader.component';
+/* import User from './User'
+let employee = new User()
+console.log(`user name:`, employee.getName()) */
 
-new HeaderComponent('header');
-const loader = new LoaderComponent('loader');
-const nav = new NavigationComponent('navigation');
-const posts = new PostsComponent('posts', {loader});
-const create = new CreateComponent('create');
-const favorite = new FavoriteComponent('favorite', {loader});
+let dragSrcEl = null
 
-nav.registerTabs([
-    {name: "create", component: create},
-    {name: "posts", component: posts},
-    {name: "favorite", component: favorite}
-])
-
-/*
-const a = '{ "name": "Ruslan", "age": "32" }';
-const c = {
-    name: "Alina",
-    age: 22,
-    address: "Tole bi 21"
+function onDragStart(e){
+    //console.log(`start`)
+    dragSrcEl = this
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.innerHTML)
 }
-const b = JSON.parse(a);
-console.log(JSON.stringify(c));
-*/
+
+function onDragOver(e){
+    if (e.preventDefault) {
+        e.preventDefault();
+      }
+    return false
+}
+
+function onDrop(e){
+    if (e.stopPropagation) {
+        e.stopPropagation(); // stops the browser from redirecting.
+      }
+      
+      if (dragSrcEl != this) {
+        dragSrcEl.innerHTML = this.innerHTML;
+        this.innerHTML = e.dataTransfer.getData('text/html');
+      }
+      
+      return false;
+}
+
+function onDragEnd(e){
+/*     if (e.stopPropagation) {
+        e.stopPropagation(); // stops the browser from redirecting.
+    }
+ */
+
+    // glob.innerHTML = this.innerHTML 
+    // this.innerHTML = e.dataTransfer.getData('text/html')
+}
+
+
+let items = document.querySelectorAll('.item')
+
+items.forEach(item => {
+    // console.log(`item`, item)
+    item.addEventListener('dragstart', onDragStart, false)
+    item.addEventListener('dragover', onDragOver, false)
+    item.addEventListener('drop', onDrop, false)
+    item.addEventListener('dragend', onDragEnd, false)
+})
