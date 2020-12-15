@@ -2,52 +2,36 @@
 let employee = new User()
 console.log(`user name:`, employee.getName()) */
 
-let dragSrcEl = null
 
-function onDragStart(e){
-    //console.log(`start`)
-    dragSrcEl = this
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML)
+
+let items = document.querySelectorAll('.box')
+let ball = document.querySelector('.ball')
+let globThis = null
+
+function handleDragStart(e){
+  // console.log(`start`, this)
+  globThis = this.querySelector('img')
 }
 
-function onDragOver(e){
-    if (e.preventDefault) {
-        e.preventDefault();
-      }
-    return false
+function handleDragOver(e){
+  e.preventDefault()
 }
 
-function onDrop(e){
-    if (e.stopPropagation) {
-        e.stopPropagation(); // stops the browser from redirecting.
-      }
-      
-      if (dragSrcEl != this) {
-        dragSrcEl.innerHTML = this.innerHTML;
-        this.innerHTML = e.dataTransfer.getData('text/html');
-      }
-      
-      return false;
+function handleDrop(e){
+  e.stopPropagation()
+  console.log(globThis)
+
+
+  this.append(globThis)
+  return false
 }
 
-function onDragEnd(e){
-/*     if (e.stopPropagation) {
-        e.stopPropagation(); // stops the browser from redirecting.
-    }
- */
-
-    // glob.innerHTML = this.innerHTML 
-    // this.innerHTML = e.dataTransfer.getData('text/html')
+function handleDragEnd(e){  
 }
-
-
-let items = document.querySelectorAll('.item')
 
 items.forEach(item => {
-    // console.log(`item`, item)
-    item.addEventListener('dragstart', onDragStart, false)
-    item.addEventListener('dragover', onDragOver, false)
-    item.addEventListener('drop', onDrop, false)
-    item.addEventListener('dragend', onDragEnd, false)
+  item.addEventListener('dragstart', handleDragStart, false)
+  item.addEventListener('dragover', handleDragOver, false)
+  item.addEventListener('drop', handleDrop, false)
+  item.addEventListener('dragend', handleDragEnd, false)
 })
