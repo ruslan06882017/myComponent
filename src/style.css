@@ -43,17 +43,14 @@ body {
   max-width: 530px;
   margin-bottom: 47px;
 }
-
 .header-text__price {
   font-size: 48px;
   font-weight: 400;
   margin-bottom: 53px;
 }
-
 button:focus {
   outline: none;
 }
-
 .button {
   border-radius: 5px;
   background-color: #f05a22;
@@ -66,4 +63,32 @@ button:focus {
   color: #f05a22;
   background-color: transparent;
   border: 1px solid #f05a22;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: center;
+  margin-bottom: 97px;
+}
+.features {
+  padding-top: 90px;
+  padding-bottom: 99px;
+  background-color: #f2f2f2;
+}
+.features-block {
+  display: inline-block;
+  text-align: center;
+  width: 25%;
+  float: left;
+}
+.features-wrap::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.features-block__img {
+  min-height: 50px;
+  margin-bottom: 23px;
 }
