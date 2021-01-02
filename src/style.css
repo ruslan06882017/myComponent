@@ -1,3 +1,6 @@
+body {
+  font-family: Tahoma;
+}
 .container {
   width: 1140px;
   margin-left: auto;
@@ -11,5 +14,56 @@
 
 .header-img {
   display: inline-block;
-  width: 40%;
+  vertical-align: middle;
+  width: 39%;
+}
+
+.header-text {
+  display: inline-block;
+  width: 60%;
+  vertical-align: middle;
+}
+
+.header-text__title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.header-text__subtitle {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 35px;
+}
+
+.header-text__descr {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  max-width: 530px;
+  margin-bottom: 47px;
+}
+
+.header-text__price {
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 53px;
+}
+
+button:focus {
+  outline: none;
+}
+
+.button {
+  border-radius: 5px;
+  background-color: #f05a22;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  padding: 22px 43px;
+}
+.button-o {
+  color: #f05a22;
+  background-color: transparent;
+  border: 1px solid #f05a22;
 }
