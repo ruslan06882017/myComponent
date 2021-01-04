@@ -1,7 +1,15 @@
 $text-color-dark: #373737
-$text-color-light: #ffffff
+$text-color-light: #fff
 $active-color: #fd9c28
-  
+
+body
+  margin: 0
+img
+  max-width: 100%
+input, button
+  &:focus
+    outline: none
+
 button
   font-size: 14px
   background-color: $active-color
@@ -9,13 +17,20 @@ button
   color: $text-color-light
   padding: 13px 22px
   border-radius: 5px
+  &:hover
+    background-color: lighten($active-color, 5)
+    cursor: pointer
   img
     vertical-align: middle
-
+  &_big
+    padding-top: 20px
+    padding-bottom: 20px
+    vertical-align: middle
+    width: 30%
   
+
 .header
   background-color: #fff
-  
   &-contacts
     display: flex
     justify-content: flex-end
@@ -23,3 +38,74 @@ button
     &__phone
       font-size: 22px
       margin-right: 13px
+      &:first-child
+        border-right: 1px solid #cfcfd0
+        padding-right: 13px
+
+.main
+  position: relative
+  padding-top: 65px
+  padding-bottom: 60px
+  background: #373737 url(../dist/img/main-bg.jpg) center no-repeat
+  background-size: cover
+  color: $text-color-light
+  z-index: 1
+  &::before
+    content: ''
+    display: block
+    position: absolute
+    right: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.6)
+    z-index: -2
+    
+  &-img
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      width: 390px
+      height: 390px
+      left: 50%
+      margin-left: -195px
+      border: 3px solid #ffffff
+      z-index: -1
+      border-radius: 50%
+
+  &-text
+    &__title
+      margin-bottom: 20px
+      font-size: 41px
+      font-weight: 700
+    &__subtitle
+      font-size: 28px
+      font-weight: 300
+    &__form
+      padding: 30px 27px
+      background-color: rgba(255, 255, 255, 0.2)
+    
+.form
+  display: flex
+  margin-bottom: 12px
+  &-title
+    margin-bottom: 20px
+    padding-right: 87px
+    font-size: 20px
+    font-weight: 300
+    line-height: 30px
+    &__important
+      font-weight: 700
+      text-transform: uppercase
+  &__input
+    margin-right: 10px
+    padding: 20px
+    border-radius: 4px
+    border: none
+    vertical-align: middle
+    flex-basis: 50%
+  &-small
+    font-size: 14px
+    font-weight: 300
+    
